@@ -25,8 +25,8 @@ export const HeroSection = () => {
           alt="Indian business leaders in Dubai"
           className="w-full h-full object-cover"
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ibc-charcoal/70 via-ibc-charcoal/40 to-ibc-charcoal/80" />
+        {/* Gradient Overlay - darker to highlight content */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ibc-charcoal/85 via-ibc-charcoal/75 to-ibc-charcoal/90" />
       </motion.div>
 
       {/* Content */}
