@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* IBC Premium Cream & Gold Design System */
+
+@layer base {
+  :root {
+    /* Cream & Gold Palette */
+    --background: 42 40% 97%;
+    --foreground: 30 10% 15%;
+    
+    --card: 42 35% 95%;
+    --card-foreground: 30 10% 15%;
+    
+    --popover: 42 35% 95%;
+    --popover-foreground: 30 10% 15%;
+    
+    /* Deep Forest Green - Primary */
+    --primary: 145 45% 22%;
+    --primary-foreground: 42 40% 97%;
+    
+    /* Warm Gold - Secondary */
+    --secondary: 38 55% 65%;
+    --secondary-foreground: 30 10% 15%;
+    
+    /* Muted Cream */
+    --muted: 42 25% 90%;
+    --muted-foreground: 30 10% 45%;
+    
+    /* Gold Accent */
+    --accent: 38 70% 50%;
+    --accent-foreground: 30 10% 15%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 42 40% 97%;
+    
+    --border: 38 30% 85%;
+    --input: 38 30% 85%;
+    --ring: 145 45% 22%;
+    
+    --radius: 0.5rem;
+    
+    /* Custom IBC Colors */
+    --ibc-cream: 42 40% 97%;
+    --ibc-cream-dark: 42 30% 92%;
+    --ibc-gold: 38 70% 50%;
+    --ibc-gold-light: 38 55% 65%;
+    --ibc-gold-dark: 38 80% 35%;
+    --ibc-green: 145 45% 22%;
+    --ibc-green-light: 145 40% 35%;
+    --ibc-charcoal: 30 10% 20%;
+    --ibc-warm-gray: 30 10% 45%;
+    
+    /* Premium Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38 70% 50%) 0%, hsl(38 55% 65%) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(42 40% 97%) 0%, hsl(42 30% 92%) 100%);
+    --gradient-hero-overlay: linear-gradient(180deg, rgba(30, 25, 20, 0.7) 0%, rgba(30, 25, 20, 0.4) 50%, rgba(30, 25, 20, 0.8) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(42 40% 97%) 0%, hsl(42 35% 95%) 100%);
+    
+    /* Premium Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(38 30% 50% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(38 30% 50% / 0.1), 0 2px 4px -2px hsl(38 30% 50% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(38 30% 50% / 0.1), 0 4px 6px -4px hsl(38 30% 50% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(38 30% 50% / 0.1), 0 8px 10px -6px hsl(38 30% 50% / 0.1);
+    --shadow-gold: 0 10px 40px -10px hsl(38 70% 50% / 0.3);
+    --shadow-card: 0 4px 20px 0 hsl(38 30% 50% / 0.08);
+    
+    /* Sidebar */
+    --sidebar-background: 42 35% 95%;
+    --sidebar-foreground: 30 10% 20%;
+    --sidebar-primary: 145 45% 22%;
+    --sidebar-primary-foreground: 42 40% 97%;
+    --sidebar-accent: 38 55% 65%;
+    --sidebar-accent-foreground: 30 10% 20%;
+    --sidebar-border: 38 30% 85%;
+    --sidebar-ring: 145 45% 22%;
+  }
+
+  .dark {
+    --background: 30 15% 10%;
+    --foreground: 42 40% 95%;
+    
+    --card: 30 15% 13%;
+    --card-foreground: 42 40% 95%;
+    
+    --popover: 30 15% 13%;
+    --popover-foreground: 42 40% 95%;
+    
+    --primary: 38 70% 50%;
+    --primary-foreground: 30 15% 10%;
+    
+    --secondary: 145 40% 30%;
+    --secondary-foreground: 42 40% 95%;
+    
+    --muted: 30 15% 20%;
+    --muted-foreground: 42 25% 65%;
+    
+    --accent: 38 55% 50%;
+    --accent-foreground: 30 15% 10%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 42 40% 95%;
+    
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 38 70% 50%;
+    
+    --sidebar-background: 30 15% 12%;
+    --sidebar-foreground: 42 40% 95%;
+    --sidebar-primary: 38 70% 50%;
+    --sidebar-primary-foreground: 30 15% 10%;
+    --sidebar-accent: 30 15% 18%;
+    --sidebar-accent-foreground: 42 40% 95%;
+    --sidebar-border: 30 15% 20%;
+    --sidebar-ring: 38 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Premium Button Variants */
+  .btn-hero {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium rounded-sm transition-all duration-300;
+    @apply bg-accent text-accent-foreground hover:shadow-gold;
+    @apply hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-hero-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-medium rounded-sm transition-all duration-300;
+    @apply bg-transparent border-2 border-ibc-cream text-ibc-cream;
+    @apply hover:bg-ibc-cream/10 hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-primary-solid {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-sm transition-all duration-300;
+    @apply bg-primary text-primary-foreground hover:bg-ibc-green-light;
+  }
+  
+  /* Section Styles */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+  
+  .container-width {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Card Styles */
+  .card-premium {
+    @apply bg-card rounded-sm p-6 md:p-8 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-premium:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* Text Styles */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+  
+  /* Underline Animation */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-accent origin-bottom-right scale-x-0 transition-transform duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+}
+
+@layer utilities {
+  /* Color utilities for IBC */
+  .bg-ibc-cream {
+    background-color: hsl(var(--ibc-cream));
+  }
+  
+  .bg-ibc-cream-dark {
+    background-color: hsl(var(--ibc-cream-dark));
+  }
+  
+  .bg-ibc-gold {
+    background-color: hsl(var(--ibc-gold));
+  }
+  
+  .bg-ibc-green {
+    background-color: hsl(var(--ibc-green));
+  }
+  
+  .text-ibc-cream {
+    color: hsl(var(--ibc-cream));
+  }
+  
+  .text-ibc-gold {
+    color: hsl(var(--ibc-gold));
+  }
+  
+  .text-ibc-green {
+    color: hsl(var(--ibc-green));
+  }
+  
+  .text-ibc-charcoal {
+    color: hsl(var(--ibc-charcoal));
+  }
+  
+  .text-ibc-warm-gray {
+    color: hsl(var(--ibc-warm-gray));
+  }
+  
+  .border-ibc-gold {
+    border-color: hsl(var(--ibc-gold));
+  }
+  
+  .border-ibc-cream {
+    border-color: hsl(var(--ibc-cream));
+  }
+  
+  /* Animation Utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-left {
+    animation: slideLeft 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-right {
+    animation: slideRight 0.8s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+  
+  /* Staggered delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slow-spin {
+  animation: slowSpin 60s linear infinite;
+}
